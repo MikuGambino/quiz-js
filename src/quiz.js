@@ -16,10 +16,8 @@ export default class Quiz{
 
     nextQuestion(){
         console.log(this.step);
-        if(this.step == this.questions.length){
-            this.showResults("dizn");
-            // todo - calculate
-        }
+        if(this.step == this.questions.length)
+            this.showResults(this.calculateResult());
         this.questionElement.innerHTML = this.questions[this.step]["question"];
         this.answerElements.forEach((el, index) => {
             el.innerHTML = `<input required type=\"radio\" name=\"radio\">${this.questions[this.step]["answers"][index].text}`
@@ -49,5 +47,11 @@ export default class Quiz{
         this.questionElement.innerHTML = this.results[res].heading;
         this.questionElement.after(description);
         description.after(resImg);
+    }
+
+    calculateResult(){
+        if(this.scores.size == 0) throw new Error("Scores map is empty!");
+        if(this.scores.size == 1) return this.scores.keys().next().value;
+        return Object.keys(this.scores).reduce((acc, el) => obj[acc] >= obj[el] ? a : b, "");
     }
 }
