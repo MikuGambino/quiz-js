@@ -1,8 +1,6 @@
 export default class Answer{
-    text = "";
-    effects = {};
     constructor(text, effects){
         this.text = text;
-        this.effects = effects;
+        this.effects = new Map(Object.entries(effects));
     }
 }
