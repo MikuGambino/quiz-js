@@ -1,15 +1,87 @@
 
 export const QuizDataMedia = [{
-    "question": "Тебе нравится рисование?",
+    "question": "Тебе нравится снимать/монтировать видео?",
+    "img": "./src/img/montaj.jpg",
     "answers": [{
-        "text" : "da",
-        "effects": {"dizn": 5}
-    },
-]
-}];
+        "text" : "Да",
+        "effects": {"tlvd": 2, "rklm": 1}},
+        {
+        "text": "Нет",
+        "effects": {}
+        }
+    ]},
+    {
+    "question": "Ты любишь писать сочинения/эссе/придумывать свои истории?",
+    "img": "./src/img/scenarist.jpg",
+    "answers": [{
+        "text" : "Да",
+        "effects": {"tlvd": 1,}},
+        {
+        "text": "Нет",
+        "effects": {}
+        }
+    ]},
+    {
+    "question": "Тебя взяли на работу в компанию по производству пылесосов. Какой деятельностью ты бы хотел заниматься?",
+    "img": "./src/img/pilesos.jpg",
+    "answers": [{
+        "text" : "Придумать дизайн",
+        "effects": {"dizn": 2}},
+        {
+        "text": "Снять рекламный видеоролик",
+        "effects": {"rklm": 2, "tlvd": 1}
+        }
+    ]},
+    {
+    "question": "Что ты бы посмотрел в свободное время?",
+    "img": "./src/img/tv.jpg",
+    "answers": [{
+        "text" : "Интервью с известным человеком",
+        "effects": {"tlvd": 1}},
+        {
+        "text": "Телеканал 'Реклама на диване'",
+        "effects": {"rklm": 3}},
+        {
+        "text": "Телепередачу про создание дизайна интерьера",
+        "effects": {"dizn": 2}},
+    ]},
+    {
+    "question": "Есть ли возможность обучаться платно?",
+    "img": "./src/img/money.jpg",
+    "answers": [{
+        "text" : "Да",
+        "effects": {}},
+        {
+        "text": "Нет",
+        "effects": {"tlvd": -7}},
+    ]},
+    {
+    "question": "По какой форме обучения ты бы хотел учиться?",
+    "img": "./src/img/lecture.jpg",
+    "answers": [{
+        "text": "Заочное обучение",
+        "effects": {"tlvd": -5}},
+        {
+        "text": "Очное обучение",
+        "effects": {}}
+    ]},
+    {
+    "question": "Предметы на ЕГЭ",
+    "img": "./src/img/ege.jpg",
+    "answers": [{
+        "text": "Литература, история/обществознание",
+        "effects": {"rklm": -5}},
+        {
+        "text": "Обществознание, история/информатика",
+        "effects": {"tlvd": -5, "dizn": -5}},
+        {
+        "text": "Всё из вышеперечисленного",
+        "effects": {}},
+    ]},
+];
 
 export const QuizDataProg =[{
-    "question": "Ты любишь играть в компьютерные игры? Если да, хотел бы их разрабатывать?",
+    "question": "Ты любишь играть в компьютерные игры? Если да, то хотел бы их разрабатывать?",
     "img": "./src/img/game.jpg",
     "answers": [{
         "text": "Да",
