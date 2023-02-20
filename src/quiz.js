@@ -6,6 +6,7 @@ export default class Quiz{
         this.scores = new Map();
         this.questions;
         this.step = 0;
+        this.imgElement = document.getElementById("quiz-img");
         this.questionElement = document.querySelector("#question");
         this.startButton = document.querySelector('#submit');
         this.listener = this.start.bind(this);
@@ -29,6 +30,7 @@ export default class Quiz{
         }
         let radioContainerElement = document.getElementById("radioContainer");
         radioContainerElement.innerHTML = '';
+        this.imgElement.src = this.questions[this.step]["img"];
         this.questionElement.innerHTML = this.questions[this.step]["question"];
         for(let i = 0; i < this.questions[this.step].answers.length; i++){
             radioContainerElement.innerHTML += `<label name="radioLabel" class="container">
@@ -54,13 +56,11 @@ export default class Quiz{
     showResults(res){
         document.querySelector("#radioContainer").remove();
         document.querySelector("#submit").remove();
-        let resImg = document.createElement("img");
-        resImg.src = this.results[res].img;
+        this.imgElement.src = this.results[res].img;
         let description = document.createElement("p");
         description.innerHTML = this.results[res].text;
         this.questionElement.innerHTML = this.results[res].heading;
         this.questionElement.after(description);
-        description.after(resImg);
     }
 
     calculateResult(){
