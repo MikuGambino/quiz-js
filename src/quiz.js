@@ -41,7 +41,8 @@ export default class Quiz{
         if(this.answerElements[0].control.checked) answer = this.questions[this.step]["answers"][0];
         else if(this.answerElements[1].control.checked) answer = this.questions[this.step]["answers"][1];
         if(answer == undefined) return;
-        answer.effects.forEach((value, key) => {
+        let effectsMap = new Map(Object.entries(answer.effects));
+        effectsMap.forEach((value, key) => {
             if(!this.scores.has(key)) this.scores.set(key, 0);
             this.scores.set(key, this.scores.get(key) + value);
         });
