@@ -1,23 +1,35 @@
 export default class Quiz{
     
-    constructor(questions, results){
+    constructor(results, ...ways){
         this.answerElements = [
             document.querySelector('[value="0"]'),
             document.querySelector('[value="1"]'),
         ];
+        this.ways = ways;
         this.results = results;
         this.scores = new Map();
-        this.questions = questions;
+        this.questions;
         this.step = 0;
         this.questionElement = document.querySelector("#question");
         this.startButton = document.querySelector('#submit');
-        this.startButton.addEventListener("click", this.checkAnswer.bind(this));
+        this.listener = this.start.bind(this);
+        this.startButton.addEventListener("click", this.listener);
+    }
+
+    start(){
+        if(this.answerElements[0].control.checked) this.questions = this.ways[0];
+        else if(this.answerElements[1].control.checked) this.questions = this.ways[1];
+        if(this.questions == undefined) return;
+        this.startButton.removeEventListener("click", this.listener);
+        this.startButton.addEventListener("click", this.checkAnswer.bind(this)); 
+        this.nextQuestion();       
     }
 
     nextQuestion(){
-        console.log(this.step);
-        if(this.step == this.questions.length)
+        if(this.step >= this.questions.length){
             this.showResults(this.calculateResult());
+            return;
+        }
         this.questionElement.innerHTML = this.questions[this.step]["question"];
         this.answerElements.forEach((el, index) => {
             el.innerHTML = `<input required type=\"radio\" name=\"radio\">${this.questions[this.step]["answers"][index].text}`
