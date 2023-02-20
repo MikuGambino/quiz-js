@@ -1,10 +1,6 @@
 export default class Quiz{
     
     constructor(results, ...ways){
-        this.answerElements = [
-            document.querySelector('[value="0"]'),
-            document.querySelector('[value="1"]'),
-        ];
         this.ways = ways;
         this.results = results;
         this.scores = new Map();
@@ -17,8 +13,9 @@ export default class Quiz{
     }
 
     start(){
-        if(this.answerElements[0].control.checked) this.questions = this.ways[0];
-        else if(this.answerElements[1].control.checked) this.questions = this.ways[1];
+        let answerElements = document.getElementsByName("radioLabel");
+        for(let i = 0; i < answerElements.length; i++)
+            if(answerElements[i].control.checked) this.questions = this.ways[i];
         if(this.questions == undefined) return;
         this.startButton.removeEventListener("click", this.listener);
         this.startButton.addEventListener("click", this.checkAnswer.bind(this)); 
@@ -30,16 +27,20 @@ export default class Quiz{
             this.showResults(this.calculateResult());
             return;
         }
+        let radioContainerElement = document.getElementById("radioContainer");
+        radioContainerElement.innerHTML = '';
         this.questionElement.innerHTML = this.questions[this.step]["question"];
-        this.answerElements.forEach((el, index) => {
-            el.innerHTML = `<input required type=\"radio\" name=\"radio\">${this.questions[this.step]["answers"][index].text}`
-        });            
+        for(let i = 0; i < this.questions[this.step].answers.length; i++){
+            radioContainerElement.innerHTML += `<label name="radioLabel" class="container">
+            <input required type=\"radio\" name=\"radio\">${this.questions[this.step]["answers"][i].text}</label>`
+        }          
     }
 
     checkAnswer(){
         let answer;
-        if(this.answerElements[0].control.checked) answer = this.questions[this.step]["answers"][0];
-        else if(this.answerElements[1].control.checked) answer = this.questions[this.step]["answers"][1];
+        let answerElements = document.getElementsByName("radioLabel");
+        for(let i = 0; i < answerElements.length; i++)
+            if(answerElements[i].control.checked) answer = this.questions[this.step]["answers"][i];
         if(answer == undefined) return;
         let effectsMap = new Map(Object.entries(answer.effects));
         effectsMap.forEach((value, key) => {
@@ -51,7 +52,7 @@ export default class Quiz{
     }
 
     showResults(res){
-        document.querySelector(".radioContainer").remove();
+        document.querySelector("#radioContainer").remove();
         document.querySelector("#submit").remove();
         let resImg = document.createElement("img");
         resImg.src = this.results[res].img;
