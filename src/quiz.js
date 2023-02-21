@@ -54,6 +54,7 @@ export default class Quiz{
     }
 
     showResults(res){
+        console.log(res);
         document.querySelector("#radioContainer").remove();
         document.querySelector("#submit").remove();
         this.imgElement.src = this.results[res].img;
@@ -66,6 +67,6 @@ export default class Quiz{
     calculateResult(){
         if(this.scores.size == 0) throw new Error("Scores map is empty!");
         if(this.scores.size == 1) return this.scores.keys().next().value;
-        return Object.keys(this.scores).reduce((acc, el) => obj[acc] >= obj[el] ? a : b, "");
+        return Array.from(this.scores.keys()).reduce((a, b) => this.scores[a] >= this.scores[b] ? a : b);
     }
 }
