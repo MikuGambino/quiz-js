@@ -51,10 +51,10 @@ export default class Quiz{
         });
         this.step++;
         this.nextQuestion();
+        // todo - das
     }
 
     showResults(res){
-        console.log(res);
         document.querySelector("#radioContainer").remove();
         document.querySelector("#submit").remove();
         this.imgElement.src = this.results[res].img;

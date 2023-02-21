@@ -2,6 +2,7 @@ body{
   display: flex;
   flex-direction: column;
   margin: 12vh 20vw;
+  background-color: #F6F6F6;
 }
 .container{
   background: red;
