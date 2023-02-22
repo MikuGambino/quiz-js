@@ -85,10 +85,10 @@ export const QuizDataProg =[{
     "img": "../img/game.jpg",
     "answers": [{
         "text": "Да",
-        "effects": {"ifst": 3}},
+        "effects": {"ifst": 3, "pinf": 0, "pinj": 0, "ivcht": 0}},
         {
         "text": "Нет",
-        "effects": {"ivcht": 0, "pinf": 0, "pinj": 0}}
+        "effects": {"ivcht": 0, "pinf": 0, "pinj": 0, "ifst": 0}}
     ]},
     {
     "question": "Тебе нравится математика?",
@@ -100,7 +100,7 @@ export const QuizDataProg =[{
         "text": "Нет",
         "effects": {"ivcht": -1}},
         {
-        "text": "Этой мой самый любимый предмет",
+        "text": "Это мой самый любимый предмет",
         "effects": {"ivcht": 3, "pinj": 2}}
     ]},
     {
@@ -114,7 +114,7 @@ export const QuizDataProg =[{
         "effects": {}}
     ]},
     {
-    "question": "Преполагаемые баллы ЕГЭ, коммерция/бюджетное обучение",
+    "question": "Предполагаемые баллы ЕГЭ, коммерция/бюджетное обучение",
     "img": "../img/ege.jpg",
     "answers": [{
         "text": "Больше 235, я хочу на бюджет",
