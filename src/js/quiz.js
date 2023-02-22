@@ -24,6 +24,7 @@ export default class Quiz{
     }
 
     nextQuestion(){
+        console.log(this.scores);
         if(this.step >= this.questions.length){
             this.showResults(this.calculateResult());
             return;
@@ -33,8 +34,8 @@ export default class Quiz{
         this.imgElement.src = this.questions[this.step]["img"];
         this.questionElement.innerHTML = this.questions[this.step]["question"];
         for(let i = 0; i < this.questions[this.step].answers.length; i++){
-            radioContainerElement.innerHTML += `<label name="radioLabel" class="container">
-            <input required type=\"radio\" name=\"radio\">${this.questions[this.step]["answers"][i].text}</label>`
+            radioContainerElement.innerHTML += `<label name="radioLabel">
+            <input type=\"radio\" name=\"radio\">${this.questions[this.step]["answers"][i].text}</label>`
         }          
     }
 
@@ -51,10 +52,10 @@ export default class Quiz{
         });
         this.step++;
         this.nextQuestion();
-        // todo - das
     }
 
     showResults(res){
+        console.log(res);
         document.querySelector("#radioContainer").remove();
         document.querySelector("#submit").remove();
         this.imgElement.src = this.results[res].img;
@@ -66,7 +67,6 @@ export default class Quiz{
 
     calculateResult(){
         if(this.scores.size == 0) throw new Error("Scores map is empty!");
-        if(this.scores.size == 1) return this.scores.keys().next().value;
-        return Array.from(this.scores.keys()).reduce((a, b) => this.scores[a] >= this.scores[b] ? a : b);
+        return Array.from(this.scores.keys()).reduce((a, b) => this.scores.get(a) >= this.scores.get(b) ? a : b, -99);
     }
 }
