@@ -4,10 +4,10 @@ export const QuizDataMedia = [{
     "img": "../img/montaj.jpg",
     "answers": [{
         "text" : "Да",
-        "effects": {"tlvd": 2, "rklm": 1}},
+        "effects": {"tlvd": 2, "rklm": 1, "dizn": 0}},
         {
         "text": "Нет",
-        "effects": {}
+        "effects": {"tlvd": 0, "rklm": 0, "dizn": 0}
         }
     ]},
     {
@@ -159,7 +159,7 @@ export const QuizDataProg =[{
     "img": "../img/lecture.jpg",
     "answers": [{
         "text": "Заочное обучение",
-        "effects": {"pinj": -5, "pinj": -5}},
+        "effects": {"pinj": -5, "pinf": -5}},
         {
         "text": "Очное обучение",
         "effects": {}}
