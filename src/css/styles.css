@@ -40,25 +40,29 @@ label{
   font-size: 25px;
 }
 button{
-  margin: 2% 15%;
-  background-color: #01a701ff;
+  margin: 2% 2%;
+  background-color: #62B476;
   border: 0px;
   border-radius: 10px;
-  box-sizing: border-box;
   color: #ffffff;
-  display: inline-block;
-  cursor:pointer;
+  cursor: pointer;
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   line-height: 29px;
   padding: 0 10px 0 11px;
   position: relative;
   text-align: center;
-  vertical-align: middle;
   width: 100px;
+}
+.button-container{
+  display: flex;
+  justify-content: center;
 }
 button:hover {
   background-color: rgb(1, 136, 1);
+}
+img[hidden] {
+  display: none;
 }
 p{
   font-size: 25px;
@@ -66,4 +70,20 @@ p{
 }
 input{
   margin-right: 2%;
+}
+@media (max-width: 768px) {
+  body{
+    margin: 2vh 2vw;
+  }
+  label{
+    font-size: 18px;
+    margin-top: 3%;
+    margin-bottom: 2%;
+  }
+  #quiz-img {
+    height: 100%;
+  }
+  p{
+    font-size: 20px;
+  }
 }

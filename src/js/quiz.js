@@ -3,14 +3,16 @@ export default class Quiz{
     constructor(results, ...ways){
         this.ways = ways;
         this.results = results;
-        this.scores = new Map();
         this.questions;
+        this.answers = [];
         this.step = 0;
         this.imgElement = document.getElementById("quiz-img");
         this.questionElement = document.querySelector("#question");
         this.startButton = document.querySelector('#submit');
         this.listener = this.start.bind(this);
         this.startButton.addEventListener("click", this.listener);
+        this.prevButton = document.querySelector('#prev');
+        this.prevButton.addEventListener("click", this.prevQuestion.bind(this));
     }
 
     start(){
@@ -24,11 +26,11 @@ export default class Quiz{
     }
 
     nextQuestion(){
-        console.log(this.scores);
         if(this.step >= this.questions.length){
             this.showResults(this.calculateResult());
             return;
         }
+        if(this.step == 1) this.prevButton.hidden = false;
         let radioContainerElement = document.getElementById("radioContainer");
         radioContainerElement.innerHTML = '';
         this.imgElement.src = this.questions[this.step]["img"];
@@ -39,25 +41,27 @@ export default class Quiz{
         }          
     }
 
+    prevQuestion(){
+        this.answers.pop();
+        this.step--;
+        if(this.step == 0) this.prevButton.hidden = true;
+        this.nextQuestion();
+    }
+
     checkAnswer(){
         let answer;
         let answerElements = document.getElementsByName("radioLabel");
         for(let i = 0; i < answerElements.length; i++)
-            if(answerElements[i].control.checked) answer = this.questions[this.step]["answers"][i];
+            if(answerElements[i].control.checked) answer = this.questions[this.step]["answers"][i]["effects"];
         if(answer == undefined) return;
-        let effectsMap = new Map(Object.entries(answer.effects));
-        effectsMap.forEach((value, key) => {
-            if(!this.scores.has(key)) this.scores.set(key, 0);
-            this.scores.set(key, this.scores.get(key) + value);
-        });
+        this.answers.push(answer);
         this.step++;
         this.nextQuestion();
     }
 
     showResults(res){
-        console.log(res);
         document.querySelector("#radioContainer").remove();
-        document.querySelector("#submit").remove();
+        document.querySelector(".button-container").remove();
         this.imgElement.src = this.results[res].img;
         let description = document.createElement("p");
         description.innerHTML = this.results[res].text;
@@ -66,7 +70,15 @@ export default class Quiz{
     }
 
     calculateResult(){
-        if(this.scores.size == 0) throw new Error("Scores map is empty!");
-        return Array.from(this.scores.keys()).reduce((a, b) => this.scores.get(a) >= this.scores.get(b) ? a : b, -99);
+        let results = new Map();
+        for(let i = 0; i < this.answers.length; i++){
+            let effectsMap = new Map(Object.entries(this.answers.at(i)));
+            effectsMap.forEach((value, key) => {
+                if(!results.has(key)) results.set(key, 0);
+                results.set(key, results.get(key) + value);
+            });
+        }
+        if(this.results.size == 0) throw new Error("Scores map is empty!");
+        return Array.from(results.keys()).reduce((a, b) => results.get(a) >= results.get(b) ? a : b, -99);
     }
 }
