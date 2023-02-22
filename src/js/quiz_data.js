@@ -1,7 +1,7 @@
 
 export const QuizDataMedia = [{
     "question": "Тебе нравится снимать/монтировать видео?",
-    "img": "../img/montaj.jpg",
+    "img": "src/img/montaj.jpg",
     "answers": [{
         "text" : "Да",
         "effects": {"tlvd": 2, "rklm": 1, "dizn": 0}},
@@ -12,7 +12,7 @@ export const QuizDataMedia = [{
     ]},
     {
     "question": "Ты любишь писать сочинения/эссе/придумывать свои истории?",
-    "img": "../img/scenarist.jpg",
+    "img": "src/img/scenarist.jpg",
     "answers": [{
         "text" : "Да",
         "effects": {"tlvd": 1,}},
@@ -23,7 +23,7 @@ export const QuizDataMedia = [{
     ]},
     {
     "question": "Тебя взяли на работу в компанию по производству пылесосов. Какой деятельностью ты бы хотел заниматься?",
-    "img": "../img/pilesos.jpg",
+    "img": "src/img/pilesos.jpg",
     "answers": [{
         "text" : "Придумать дизайн",
         "effects": {"dizn": 2}},
@@ -34,7 +34,7 @@ export const QuizDataMedia = [{
     ]},
     {
     "question": "Что ты бы посмотрел в свободное время?",
-    "img": "../img/tv.jpg",
+    "img": "src/img/tv.jpg",
     "answers": [{
         "text" : "Интервью с известным человеком",
         "effects": {"tlvd": 1}},
@@ -47,7 +47,7 @@ export const QuizDataMedia = [{
     ]},
     {
     "question": "Есть ли возможность обучаться платно?",
-    "img": "../img/money.jpg",
+    "img": "src/img/money.jpg",
     "answers": [{
         "text" : "Да",
         "effects": {}},
@@ -57,7 +57,7 @@ export const QuizDataMedia = [{
     ]},
     {
     "question": "По какой форме обучения ты бы хотел учиться?",
-    "img": "../img/lecture.jpg",
+    "img": "src/img/lecture.jpg",
     "answers": [{
         "text": "Заочное обучение",
         "effects": {"tlvd": -5}},
@@ -67,7 +67,7 @@ export const QuizDataMedia = [{
     ]},
     {
     "question": "Предметы на ЕГЭ",
-    "img": "../img/ege.jpg",
+    "img": "src/img/ege.jpg",
     "answers": [{
         "text": "Литература, история/обществознание",
         "effects": {"rklm": -5}},
@@ -82,7 +82,7 @@ export const QuizDataMedia = [{
 
 export const QuizDataProg =[{
     "question": "Ты любишь играть в компьютерные игры? Если да, то хотел бы их разрабатывать?",
-    "img": "../img/game.jpg",
+    "img": "src/img/game.jpg",
     "answers": [{
         "text": "Да",
         "effects": {"ifst": 3, "pinf": 0, "pinj": 0, "ivcht": 0}},
@@ -92,7 +92,7 @@ export const QuizDataProg =[{
     ]},
     {
     "question": "Тебе нравится математика?",
-    "img": "../img/math.jpg",
+    "img": "src/img/math.jpg",
     "answers": [{
         "text": "Да",
         "effects": {"ivcht": 1, "pinj": 1}},
@@ -105,7 +105,7 @@ export const QuizDataProg =[{
     ]},
     {
     "question": "Ты бы хотел уметь создавать и обрабатывать анимации и видеоизображения?",
-    "img": "../img/monkey.jpg",
+    "img": "src/img/monkey.jpg",
     "answers": [{
         "text": "Да",
         "effects": {"ifst": 1}},
@@ -115,7 +115,7 @@ export const QuizDataProg =[{
     ]},
     {
     "question": "Предполагаемые баллы ЕГЭ, коммерция/бюджетное обучение",
-    "img": "../img/ege.jpg",
+    "img": "src/img/ege.jpg",
     "answers": [{
         "text": "Больше 235, я хочу на бюджет",
         "effects": {}},
@@ -132,7 +132,7 @@ export const QuizDataProg =[{
     ]},
     {
     "question": "Ты бы хотел изучать экономику?",
-    "img": "../img/ekonomika.jpg",
+    "img": "src/img/ekonomika.jpg",
     "answers": [{
         "text": "Да",
         "effects": {"pinf": 1, "pinj": 1}},
@@ -146,7 +146,7 @@ export const QuizDataProg =[{
     ]},
     {
     "question": "Ты бы хотел овладеть навыками управления проектами и командами?",
-    "img": "../img/teamlead.jpg",
+    "img": "src/img/teamlead.jpg",
     "answers": [{
         "text": "Да",
         "effects": {"pinj": 3}},
@@ -156,7 +156,7 @@ export const QuizDataProg =[{
     ]},
     {
     "question": "По какой форме обучения ты бы хотел учиться?",
-    "img": "../img/lecture.jpg",
+    "img": "src/img/lecture.jpg",
     "answers": [{
         "text": "Заочное обучение",
         "effects": {"pinj": -5, "pinf": -5}},
